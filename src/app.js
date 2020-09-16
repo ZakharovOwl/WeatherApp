@@ -4,7 +4,8 @@ window.addEventListener('load', ()=>{
     let lat;
     let temperatureDescription = document.querySelector('.temperature-description');
     let temperatureDegree = document.querySelector('.temperature-degree');
-    let locationTimezone = document.querySelector('.location-timezone')
+    let locationTimezone = document.querySelector('.location-timezone');
+    let temperatureIcon = document.querySelector('.temperature-icon')
 
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
@@ -24,10 +25,12 @@ window.addEventListener('load', ()=>{
 
                     //set DOM Elements from the API
                     //Units – default: kelvin 
-                    temperatureDegree.textContent = `${temp -  273,15}`; 
+                    temperatureDegree.textContent = `${temp -  273,15}`;
+                    temperatureDescription.textContent = data.current.weather[0].description;
+                    locationTimezone.textContent = data.timezone;
+                    //temperatureIcon.innerHTML = data.current.weather[0].icon
 
-                    //add temp 21.39
-
+                
         })
         
         })
