@@ -20,9 +20,13 @@ window.addEventListener('load', ()=>{
                 })
                 .then(data=>{
                     console.log(data);
-                    const {temperature, summary} = data.currently;
-                    data.currently.temperature
+                    const {temp, summary} = data.current;
+
                     //set DOM Elements from the API
+                    //Units – default: kelvin 
+                    temperatureDegree.textContent = `${temp -  273,15}`; 
+
+                    //add temp 21.39
 
         })
         
