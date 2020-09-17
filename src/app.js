@@ -26,17 +26,16 @@ window.addEventListener('load', ()=>{
 
                     //set DOM Elements from the API
                     //Units – default: kelvin 
+
                     temperatureDegree.textContent = `${temp -  273,15}`;
                     temperatureDescription.textContent = data.current.weather[0].description;
                     locationTimezone.textContent = data.timezone;
-
                     let iconLink = data.current.weather[0].icon;
                     weatherIcon.innerHTML = `<img src=http://openweathermap.org/img/w/${iconLink}.png></img>`
-        })
-        
-        })
-    }else {
-        h1.textContent = 'hey, not working, i dont know why(( Sorry'
+                })
+            })
+        }else {
+            h1.textContent = 'hey, not working, i dont know why(( Sorry'
     }
 })
 
