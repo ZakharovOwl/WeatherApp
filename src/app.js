@@ -5,7 +5,8 @@ window.addEventListener('load', ()=>{
     let temperatureDescription = document.querySelector('.temperature-description');
     let temperatureDegree = document.querySelector('.temperature-degree');
     let locationTimezone = document.querySelector('.location-timezone');
-    let temperatureIcon = document.querySelector('.temperature-icon')
+    let temperatureIcon = document.querySelector('.temperature-icon');
+    let weatherIcon = document.querySelector('.weather-icon')
 
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
@@ -28,6 +29,9 @@ window.addEventListener('load', ()=>{
                     temperatureDegree.textContent = `${temp -  273,15}`;
                     temperatureDescription.textContent = data.current.weather[0].description;
                     locationTimezone.textContent = data.timezone;
+
+                    let iconLink = data.current.weather[0].icon;
+                    weatherIcon.innerHTML = `<img src=http://openweathermap.org/img/w/${iconLink}.png></img>`
                     //temperatureIcon.innerHTML = data.current.weather[0].icon
 
                 
